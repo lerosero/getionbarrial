@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestor 25 - Acceso al Sistema</title>
+    <link rel="stylesheet" href="styles/login.css">
+</head>
+<body>
+    <div class="login-container">
+        <div class="login-card">
+            <div class="logo-section">
+                <div class="logo">
+                    <span class="logo-text">Gestor</span>
+                    <span class="logo-number">25</span>
+                </div>
+                <h1>Sistema de Gestión Barrial</h1>
+                <p class="subtitle">Acceso al sistema</p>
+            </div>
+            
+            <form id="loginForm" class="login-form">
+                <div class="form-group">
+                    <label for="username">Usuario</label>
+                    <input type="text" id="username" name="username" required>
+                    <span class="input-icon">👤</span>
+                </div>
+                
+                <div class="form-group">
+                    <label for="password">Contraseña</label>
+                    <input type="password" id="password" name="password" required>
+                    <span class="input-icon">🔒</span>
+                </div>
+                
+                <button type="submit" class="login-btn">
+                    <span>Ingresar al Sistema</span>
+                    <div class="btn-loader" id="btnLoader"></div>
+                </button>
+                
+                <div class="error-message" id="errorMessage"></div>
+            </form>
+            
+            <div class="login-footer">
+                <p>¿Olvidaste tu contraseña? <a href="#" onclick="showForgotPassword()">Recuperar</a></p>
+            </div>
+        </div>
+    </div>
+    
+    <script src="scripts/login.js"></script>
+</body>
+</html>

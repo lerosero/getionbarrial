@@ -1,0 +1,151 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Gestión Barrial - Panel General</title>
+    <link rel="stylesheet" href="styles/panel.css">
+</head>
+<body>
+    <header class="header">
+        <div class="header-content">
+            <div class="logo-header">
+                <span class="logo-text">Gestor</span>
+                <span class="logo-number">25</span>
+            </div>
+            <h1>Gestión Barrial - Panel General</h1>
+            <div class="user-info">
+                <span class="welcome-text">Bienvenido, <span id="currentUser">Usuario</span></span>
+                <button class="logout-btn" onclick="logout()">Cerrar Sesión</button>
+            </div>
+        </div>
+    </header>
+
+    <main class="main-content">
+        <div class="panel-container">
+            <div class="panel-header">
+                <h2>Seleccione una opción de gestión</h2>
+                <p class="panel-subtitle">Administre los diferentes aspectos del sistema barrial</p>
+            </div>
+            
+            <div class="options-grid">
+                <div class="option-card" onclick="navigateToModule('usuarios')">
+                    <div class="card-icon">
+                        <span class="icon">👥</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Gestión de Usuarios</h3>
+                        <p>Administrar usuarios del sistema, permisos y roles</p>
+                        <div class="card-stats">
+                            <span class="stat-item">
+                                <span class="stat-number" id="userCount">0</span>
+                                <span class="stat-label">Usuarios activos</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+                
+                <div class="option-card" onclick="navigateToModule('alicuotas')">
+                    <div class="card-icon">
+                        <span class="icon">💰</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Gestión de Alícuotas</h3>
+                        <p>Administrar pagos, cuotas y estados de cuenta</p>
+                        <div class="card-stats">
+                            <span class="stat-item">
+                                <span class="stat-number" id="alicuotaCount">0</span>
+                                <span class="stat-label">Alícuotas pendientes</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+                
+                <div class="option-card" onclick="navigateToModule('gastos')">
+                    <div class="card-icon">
+                        <span class="icon">📊</span>
+                    </div>
+                    <div class="card-content">
+                        <h3>Gestión de Gastos</h3>
+                        <p>Controlar gastos comunes y presupuestos</p>
+                        <div class="card-stats">
+                            <span class="stat-item">
+                                <span class="stat-number" id="gastoCount">0</span>
+                                <span class="stat-label">Gastos del mes</span>
+                            </span>
+                        </div>
+                    </div>
+                    <div class="card-arrow">→</div>
+                </div>
+            </div>
+            
+            <div class="quick-actions">
+                <h3>Acciones Rápidas</h3>
+                <div class="quick-actions-grid">
+                    <button class="quick-action-btn" onclick="showQuickReport()">
+                        <span class="quick-icon">📈</span>
+                        <span>Reporte Rápido</span>
+                    </button>
+                    <button class="quick-action-btn" onclick="showNotifications()">
+                        <span class="quick-icon">🔔</span>
+                        <span>Notificaciones</span>
+                        <span class="notification-badge" id="notificationBadge">3</span>
+                    </button>
+                    <button class="quick-action-btn" onclick="showSettings()">
+                        <span class="quick-icon">⚙️</span>
+                        <span>Configuración</span>
+                    </button>
+                </div>
+            </div>
+        </div>
+    </main>
+
+    <footer class="footer">
+        <div class="footer-content">
+            <p>&copy; 2025 Gestor 25 - Sistema de Gestión Barrial. Todos los derechos reservados.</p>
+            <div class="footer-links">
+                <a href="#" onclick="showHelp()">Ayuda</a>
+                <a href="#" onclick="showAbout()">Acerca de</a>
+                <a href="#" onclick="showContact()">Contacto</a>
+            </div>
+        </div>
+    </footer>
+
+    <!-- Modal para notificaciones -->
+    <div id="notificationModal" class="modal">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h3>Notificaciones</h3>
+                <span class="close" onclick="closeModal('notificationModal')">&times;</span>
+            </div>
+            <div class="modal-body">
+                <div class="notification-item">
+                    <span class="notification-icon">⚠️</span>
+                    <div class="notification-text">
+                        <strong>Alícuota vencida</strong>
+                        <p>Hay 5 alícuotas con vencimiento próximo</p>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <span class="notification-icon">💰</span>
+                    <div class="notification-text">
+                        <strong>Pago recibido</strong>
+                        <p>Se registró un nuevo pago de $50,000</p>
+                    </div>
+                </div>
+                <div class="notification-item">
+                    <span class="notification-icon">👤</span>
+                    <div class="notification-text">
+                        <strong>Nuevo usuario</strong>
+                        <p>Se registró un nuevo usuario en el sistema</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="scripts/panel.js"></script>
+</body>
+</html>
